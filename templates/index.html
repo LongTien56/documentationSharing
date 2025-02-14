@@ -5,9 +5,10 @@
 </head>
 <body>
     <h1>Documentations</h1>
+    <h3> This page contains all the documentations in various technical fields. All of the are the result of my hand-on labs or research. I gave everyone pemissions to comment/suggest in order to complement my documentations. If you find out some parts of my documentation are already out-dated or not correct anymore. Feel free to comment/suggest. I really appriciate your contributions.</h3>
     <ul>
-        {% for doc in documents %}
-            <li><a href="{{ doc }}" target="_blank">{{ doc }}</a></li>
+        {% for name, link in documents %}
+            <li><a href="{{ link }}" target="_blank">{{ name }}</a></li>
         {% endfor %}
     </ul>
     <a href="/upload">Upload a new document</a>

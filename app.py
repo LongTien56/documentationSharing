@@ -7,12 +7,17 @@ DOCUMENTS_FILE = "documents.txt"
 def load_documents():
     if not os.path.exists(DOCUMENTS_FILE):
         return []
+    documents = []
     with open(DOCUMENTS_FILE, "r") as f:
-        return [line.strip() for line in f.readlines()]
+        for line in f:
+            parts = line.strip().split('|', 1)
+            if len(parts) == 2:  # Ensure both name and link exist
+                documents.append(tuple(parts))
+    return documents
 
-def save_document(link):
+def save_document(name, link):
     with open(DOCUMENTS_FILE, "a") as f:
-        f.write(link + "\n")
+        f.write(f"{name}|{link}\n")
 
 @app.route('/')
 def index():
@@ -22,9 +27,10 @@ def index():
 @app.route('/upload', methods=["GET", "POST"])
 def upload():
     if request.method == "POST":
+        name = request.form.get("doc_name")
         link = request.form.get("doc_link")
-        if link:
-            save_document(link)
+        if name and link:
+            save_document(name, link)
         return redirect(url_for("index"))
     return render_template("upload.html")
 
