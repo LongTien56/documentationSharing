@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document List</title>
+</head>
+<body>
+    <h1>Documentations</h1>
+    <ul>
+        {% for doc in documents %}
+            <li><a href="{{ doc }}" target="_blank">{{ doc }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="/upload">Upload a new document</a>
+</body>
+</html>
