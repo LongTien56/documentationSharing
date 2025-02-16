@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Document</title>
+</head>
+<body>
+    <h1>Edit Document Name</h1>
+    <form method="POST">
+        <label>Current Name:</label>
+        <input type="text" name="new_name" value="{{ document[0] }}" required>
+        <input type="hidden" name="doc_link" value="{{ document[1] }}">
+        <button type="submit">Save Changes</button>
+    </form>
+    <a href="/">Back to document list</a>
+</body>
+</html>

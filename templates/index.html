@@ -5,12 +5,18 @@
 </head>
 <body>
     <h1>Documentations</h1>
-    <h3> This page contains all the documentations in various technical fields. All of the are the result of my hand-on labs or research. I gave everyone pemissions to comment/suggest in order to complement my documentations. If you find out some parts of my documentation are already out-dated or not correct anymore. Feel free to comment/suggest. I really appriciate your contributions.</h3>
+    <h3>This page contains all the documentation in various technical fields. All of them are the result of my hands-on labs or research. I gave everyone permission to comment/suggest in order to complement my documentations. If you find some parts of my documentation outdated or incorrect, feel free to comment/suggest. I really appreciate your contributions.</h3>
+
     <ul>
-        {% for name, link in documents %}
-            <li><a href="{{ link }}" target="_blank">{{ name }}</a></li>
+        {% for index, (name, link) in documents %}
+            <li>
+                <a href="{{ link }}" target="_blank">{{ name }}</a>
+                <a href="{{ url_for('edit', doc_id=index) }}">[Edit]</a>
+                <a href="{{ url_for('confirm_delete', doc_id=index) }}" style="color: red;">[Delete]</a>
+            </li>
         {% endfor %}
     </ul>
+
     <a href="/upload">Upload a new document</a>
 </body>
 </html>
