@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 import os
 
 app = Flask(__name__)
-DOCUMENTS_FILE = "documents.txt"
+DOCUMENTS_FILE = "documents/documents.txt"
 
 def load_documents():
     if not os.path.exists(DOCUMENTS_FILE):
