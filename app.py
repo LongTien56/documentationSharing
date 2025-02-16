@@ -67,4 +67,4 @@ def confirm_delete(doc_id):
     return render_template("confirm_delete.html", document=documents[doc_id][1])
 
 if __name__ == "__main__":
-    app.run(debug=True)
+   app.run(host='0.0.0.0',debug=True)
